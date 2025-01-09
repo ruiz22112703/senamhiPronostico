@@ -18,10 +18,10 @@ dir.create(paste0('DATASET_nc_','_2025'))
 dir.create(paste0('MODELOS-IMAGEN','_2025'))
 setwd(paste0('DATASET_nc_',"_2025"))
 #setwd('/home/nihelruiz/Downloads/')
-download.file('https://github.com/ruiz22112703/senamhiPronostico/raw/refs/heads/main/file_nc_enero.zip','forecast.zip')
+download.file('https://github.com/ruiz22112703/senamhiPronostico/raw/refs/heads/main/file_nc.zip','forecast.zip')
 # getwd()
 unzip(paste0('forecast','.zip'))
-setwd(paste0('file_nc_',mes[num1]))
+setwd(paste0('file_nc'))
 #
 # #setwd(old)
 #
