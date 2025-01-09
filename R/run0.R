@@ -25,7 +25,7 @@ setwd(paste0('file_nc_',mes[num1]))
 #
 # #setwd(old)
 #
-setwd('/home/nihelruiz/Documents/2024/modelos-forecast/nc/')
+#setwd('/home/nihelruiz/Documents/2024/modelos-forecast/nc/')
 dir()
 lis<-list.files(pattern = '.nc',full.names = T)
 #j<-1;i<-2
