@@ -15,7 +15,7 @@ dir.create(paste0('Pronostico_','para_',mes[num1],'_2025'))
 setwd(paste0('Pronostico_','para_',mes[num1],'_2025'))
 
 dir.create(paste0('DATASET_nc_','_2025'))
-dir.create(paste0('MODELOS-IMAGWEN','_2025'))
+dir.create(paste0('MODELOS-IMAGEN','_2025'))
 setwd(paste0('DATASET_nc_',"_2025"))
 #setwd('/home/nihelruiz/Downloads/')
 download.file('https://github.com/ruiz22112703/senamhiPronostico/raw/refs/heads/main/file_nc_enero.zip','forecast.zip')
@@ -25,11 +25,13 @@ setwd(paste0('file_nc_',mes[num1]))
 #
 # #setwd(old)
 #
-lis<-list.files('./',pattern = '.nc',full.names = T)
+setwd('/home/nihelruiz/Documents/2024/modelos-forecast/nc/')
+dir()
+lis<-list.files(pattern = '.nc',full.names = T)
 #j<-1;i<-2
 setwd(old)
 setwd(paste0('Pronostico_','para_',mes[num1],'_2025'))
-setwd(paste0('MODELOS-IMAGWEN','_2025'));pl<-getwd()
+setwd(paste0('MODELOS-IMAGEN','_2025'));pl<-getwd()
 download.file('https://github.com/ruiz22112703/senamhiPronostico/raw/refs/heads/main/shape.zip','shapes.zip')
 unzip(paste0('shapes','.zip'))
 
