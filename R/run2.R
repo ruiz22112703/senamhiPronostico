@@ -2,7 +2,7 @@
 
 pacman::p_load(tidyverse,terra,raster,sf,tidyterra,ggimage,ragg,glue,ggspatial)
 gc();gc()
-setwd('./shapes')
+setwd('./shape')
 bol0<-vect('./Límite Nacional.shp')
 #date<-seq(as.Date('1940-01-01'),as.Date('2024-03-01'),by='month')
 
