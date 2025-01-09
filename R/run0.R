@@ -26,8 +26,7 @@ setwd(paste0('file_nc_',mes[num1]))
 # #setwd(old)
 #
 #setwd('/home/nihelruiz/Documents/2024/modelos-forecast/nc/')
-dir()
-lis<-list.files(pattern = '.nc',full.names = T)
+lis<-list.files(getwd(),pattern = '.nc',full.names = T)
 #j<-1;i<-2
 setwd(old)
 setwd(paste0('Pronostico_','para_',mes[num1],'_2025'))
