@@ -4,6 +4,7 @@ pacman::p_load(tidyverse,terra,raster,sf,tidyterra,ggimage,ragg,glue,ggspatial)
 gc();gc()
 setwd('./shape')
 bol0<-vect('./Límite Nacional.shp')
+warning(warn=-1)
 #date<-seq(as.Date('1940-01-01'),as.Date('2024-03-01'),by='month')
 
 bol<-vect('./Límite Departamental.shp')
@@ -73,3 +74,4 @@ for (j in 1:length(lis)) {
 
   }
 }
+setwd(old)
