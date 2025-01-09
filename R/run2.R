@@ -1,40 +1,40 @@
 #
+
+pacman::p_load(tidyverse,terra,raster,sf,tidyterra,ggimage,ragg,glue,ggspatial)
 gc();gc()
-bol0<-vect('/home/nihelruiz/Documents/2024/SHAPE OFICIAL/Límite Nacional.shp')
+setwd('./shapes')
+bol0<-vect('./Límite Nacional.shp')
 #date<-seq(as.Date('1940-01-01'),as.Date('2024-03-01'),by='month')
 
-bol<-vect('/home/nihelruiz/Documents/2024/SHAPE OFICIAL/Límite Departamental.shp')
-macro<-vect('/home/nihelruiz/Documents/2024/SHAPE OFICIAL/Macroregiones.shp')
-lagos<-vect('/home/nihelruiz/Documents/2024/SHAPE OFICIAL/lagos_SNHN2016.shp')
-salares<-vect('/home/nihelruiz/Documents/2024/SHAPE OFICIAL/Salares.shp')
+bol<-vect('./Límite Departamental.shp')
+macro<-vect('./Macroregiones.shp')
+lagos<-vect('./Lagos y Lagunas.shp')
+#plot(lagos)
+salares<-vect('./Salares.shp')
 #a
 #plot(a[[510:519]])
 #plot(bol0)
-municipios<-vect('/home/nihelruiz/Documents/2024/SHAPE OFICIAL/Límite Provincial.shp')
+municipios<-vect('./Límite Provincial.shp')
 #plot(municipios)
-img1<-data.frame(x=-59,y=-10.5,img='/home/nihelruiz/Documents/2024/SHAPE OFICIAL/LOGOSENAMHI.png')
-img2<-data.frame(x=-59,y=-21.9,img='/home/nihelruiz/Documents/2024/SHAPE OFICIAL/LEYENDAMAPA.png')
-escala<-data.frame(x=-62,y=-10.5,img='/home/nihelruiz/Documents/2024/SHAPE OFICIAL/NORTE.png')
+img1<-data.frame(x=-59,y=-10.5,img='./LOGOSENAMHI.png')
+img2<-data.frame(x=-59,y=-21.9,img='./LEYENDAMAPA.png')
+escala<-data.frame(x=-62,y=-10.5,img='./NORTE.png')
 #
-
-
-
-
-setwd(old)
+setwd(pl)
+dist<-0.05
+X<-seq(-71,-56,dist)
+Y<-seq(-9,-25,-dist)
+datosint<-expand.grid(x=X,y=Y)
+gridded(datosint)<-~x+y
+a2<-rast(datosint)
 for (j in 1:length(lis)) {
   #
-  dist<-0.05
-  X<-seq(-71,-56,dist)
-  Y<-seq(-9,-25,-dist)
-  datosint<-expand.grid(x=X,y=Y)
-  gridded(datosint)<-~x+y
-  a2<-rast(datosint)
   #--------------
   #
   a<-rast(lis[[j]])
   a<-a*2629440*1000;a[a<= -60]<- -60;a[a>= 120]<- 120
   b<-mask(crop(resample(a,a2),st_as_sf(bol0)),st_as_sf(bol0))
-  
+
   for (i in num1) {
     e<-b[[i]]
     names(e)<-glue("SENAMHI-BOLIVIA, modelo: {name[j]}, mes: {mes[i]}-2025")
@@ -67,7 +67,7 @@ for (j in 1:length(lis)) {
       annotation_scale(location = "br", width_hint = 0.4) +
       geom_image(data=img2,aes(x,y,image=img),size=0.2)+labs(x='Longitud',y='Latitud',fill='PROB EN %')+
       geom_text(aes(x=-67, y=-23.5,fontface = "bold"),label=expression(paste(Psi," .",'(r,t) - ', '@senamhi.gob.bo & IA')),size=3.5)
-    ggsave(glue('/home/nihelruiz/Documents/2024/modelos-forecast/imagen/{mes[i]}/{names(e)}.png'), width = 30, height = 20, units = "cm")
-    
+    ggsave(glue('{names(e)}.png'), width = 30, height = 20, units = "cm")
+
   }
 }
