@@ -16,9 +16,9 @@ salares<-vect('./Salares.shp')
 #plot(bol0)
 municipios<-vect('./Límite Provincial.shp')
 #plot(municipios)
-img1<-data.frame(x=-59,y=-10.5,img='./LOGOSENAMHI.png')
-img2<-data.frame(x=-59,y=-21.9,img='./LEYENDAMAPA.png')
-escala<-data.frame(x=-62,y=-10.5,img='./NORTE.png')
+img1<-data.frame(x=-59,y=-10.5,img=paste0(getwd(),'/LOGOSENAMHI.png'))
+img2<-data.frame(x=-59,y=-21.9,img=paste0(getwd(),'/LEYENDAMAPA.png'))
+escala<-data.frame(x=-62,y=-10.5,img=paste(getwd(),'/NORTE.png'))
 #
 setwd(pl)
 dist<-0.05
@@ -27,6 +27,7 @@ Y<-seq(-9,-25,-dist)
 datosint<-expand.grid(x=X,y=Y)
 gridded(datosint)<-~x+y
 a2<-rast(datosint)
+
 for (j in 1:length(lis)) {
   #
   #--------------
