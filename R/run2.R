@@ -18,7 +18,7 @@ municipios<-vect('./Límite Provincial.shp')
 #plot(municipios)
 img1<-data.frame(x=-59,y=-10.5,img=paste0(getwd(),'/LOGOSENAMHI.png'))
 img2<-data.frame(x=-59,y=-21.9,img=paste0(getwd(),'/LEYENDAMAPA.png'))
-escala<-data.frame(x=-62,y=-10.5,img=paste(getwd(),'/NORTE.png'))
+escala<-data.frame(x=-62,y=-10.5,img=paste0(getwd(),'/NORTE.png'))
 #
 setwd(pl)
 dist<-0.05
