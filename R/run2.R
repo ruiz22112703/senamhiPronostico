@@ -41,6 +41,7 @@ for (j in 1:length(lis)) {
     e<-b[[i]]
     names(e)<-glue("SENAMHI-BOLIVIA, modelo: {name[j]}, mes: {mes[i]}-2025")
     nombre<-paste0('SenamhiPronosticoModelo',name[j],'.png')
+    options(warn=-1)
     ggplot()+geom_spatraster(data=e)+theme_bw()+facet_wrap(~lyr)+labs(fill='PROB EN %')+
       theme(legend.position = c(1.1, 0.50),legend.background = element_rect(fill = "white",color='black'),
             legend.key.height = unit (3, 'cm'),
