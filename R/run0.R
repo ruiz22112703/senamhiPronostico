@@ -3,8 +3,8 @@
 
 # names(a)<-date
 # date %>% length()
-num1<-1
-
+rm(list = ls());gc();gc();gc()
+source("https://github.com/ruiz22112703/senamhiPronostico/raw/refs/heads/main/R/run1.R")
 run<-sprintf("%.2d", 1:12)
 name<-c('Aleman','Americano','Canadiense','Europeo','Frances','Italiano','Japones','Reyno_Unido')
 mes<-c('enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre')
