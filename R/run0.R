@@ -3,6 +3,7 @@
 
 # names(a)<-date
 # date %>% length()
+install.packages("pacman")
 rm(list = ls());gc();gc();gc()
 warning(warn=-1)
 source("https://github.com/ruiz22112703/senamhiPronostico/raw/refs/heads/main/R/run1.R")
