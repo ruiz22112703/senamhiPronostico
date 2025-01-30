@@ -38,6 +38,7 @@ for (j in 1:length(lis)) {
   b<-mask(crop(resample(a,a2),st_as_sf(bol0)),st_as_sf(bol0))
 
   for (i in num1) {
+    i<-num1-1
     e<-b[[i]]
     names(e)<-glue("SENAMHI-BOLIVIA, modelo: {name[j]}, mes: {mes[i]}-2025")
     nombre<-paste0('SenamhiPronosticoModelo',name[j],'.png')
