@@ -29,7 +29,7 @@ cbba<-function(cb){
       #
       Aerop<-function(num0){
         dia<-paste(format(ISOdate(2000, 1:12, 1), "%B"),2025)#c("ENE-FEB-MAR:","FEB-MAR-ABR:","MAR-ABR-MAY:","ABR-MAY-JUN:","MAY-JUN-JUL:","JUN-JUL-AGO:","JUL-AGO-SEP:","AGO-SEP-OCT:","SEP-OCT-NOV:","OCT-NOV-DIC:","NOV-DIC-ENE",'DIC-ENE-FEB:')
-        if(num0>=1&num0<=12){
+        if(num0>1&num0<=12){
           cat(paste("Usted eligio el pronostico para el mes de:", '"',dia[num0],'"',"\n"))
           return(55)
         }else{
